@@ -1,0 +1,11 @@
+<div class="segmentCard" (click)="addModalItem()">
+    <img src="../../../assets/images/add.svg" alt="add">
+</div>
+
+<div *ngFor="let list of segementDataItem">
+    <div class="segmentCardSection" [style.border-color]="list.color">
+        <div class="colorIndx" [style.background-color]="list.color"></div>
+        <div class="emoji">{{list.emoji}}</div>
+    </div>
+    <div>{{list.name}}</div>
+</div>

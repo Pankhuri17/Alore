@@ -1,0 +1,65 @@
+<div class="modal">
+  <div class="backDropModal">
+    <div class="modalContent">
+      <div class="closeBtn" (click)="onClose()">
+        <svg
+          class="w-6 h-6 closeImg"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </div>
+      <div class="modalBody">
+        <div class="heading">Add a table</div>
+        <div class="modalContentSection">
+          <div class="inputSection">
+            <label>Name*</label>
+            <input type="text" placeholder="Ex: Computer Software" [(ngModel)]="name" />
+          </div>
+          <div class="inputSection">
+            <label for="icon">Icon</label>
+            <div class="emojiSectionFirst" (click)="show()">
+              <div class="emojiIcons">{{data}}</div>
+              <img
+                class="arrow"
+                src="../../../assets/images/arrowDown.svg"
+                alt="arrow"
+              />
+            </div >
+            <emoji-mart (emojiClick)="addEmoji($event)" *ngIf="emojiShow"></emoji-mart>
+          </div>
+          <div class="inputSection" (click)="selectColorPallate()">
+            <label for="icon">Color</label>
+            <div class="emojiSection">
+              <div class="listItem" [style.background-color]="selectPallate"></div>
+              <div class="colorPallate" *ngIf="pallateColor">
+                <div class="underList">
+                  <div class="listSection"  *ngFor="let user of colorPalette" (click)="selecColor(user)">
+                    <div class="listItem" [style.background-color]="user"></div>
+                  </div>
+                </div>
+              </div>
+              <img
+                class="arrow"
+                src="../../../assets/images/arrowDown.svg"
+                alt="arrow"
+              />
+            </div>
+          </div>
+          <div class="groupBtn">
+             <button class="addBtn" (click)="save(name, data, selectPallate)">Add</button>
+             <button class="cancelBtn" (click)="onClose()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

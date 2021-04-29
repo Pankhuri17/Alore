@@ -1,0 +1,10 @@
+.header{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    border-bottom: 1px solid #CCCCCC;
+    margin: 0px 20px;
+    .saveContent{
+        margin-right: 10px;
+    }
+}

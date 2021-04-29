@@ -1,0 +1,55 @@
+<div class="prospectorSidebar">
+  <div class="prospectorTop">
+    <label class="procpectorText" for="prospector">Prospector</label>
+    <input
+      class="searchSegment"
+      type="text"
+      placeholder="Search for a table or a segment"
+    />
+    <label class="segment" for="segments">SEGMENTS</label>
+  </div>
+  <div class="prospectorBottom">
+    <div class="bottomContent">
+      <button class="segmentBtn" (click)="addSegment()">
+        <img src="../../../assets/images/plus.svg" alt="plus" />
+        <div class="btnText">Add a segment</div>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" *ngIf="opened">
+  <div class="backDropModal">
+    <div class="modalContent">
+      <div class="closeBtn" (click)="onClose()">
+        <svg
+          class="w-6 h-6 closeImg"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+          ></path>
+        </svg>
+      </div>
+      <div class="modalBody">
+        <div class="heading">Add Segment</div>
+        <div class="modalContentSection">
+          <div class="inputSection">
+            <label>Segment Name*</label>
+            <input type="text" placeholder="Ex: Computer Software" [(ngModel)]="segmentName" />
+          </div>
+          <div class="groupBtn">
+             <button class="addBtn" (click)="save()" [disabled]="!segmentName">Add</button>
+             <button class="cancelBtn" (click)="onClose()">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

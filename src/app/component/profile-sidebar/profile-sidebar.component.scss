@@ -1,0 +1,23 @@
+@import "../../styles/variable.scss";
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    background-color: $secondary;
+    padding: 0px 10px;
+    .sidebarTop{
+        padding-top: 20px;
+    }
+    .sidebarBottom{
+        text-align: center;
+        padding-bottom: 20px;
+        .sidebarBottomIcon{
+            padding: 10px 0px;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

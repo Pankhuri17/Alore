@@ -1,0 +1,26 @@
+<div class="dashboard">
+    <div>
+        <app-profile-sidebar></app-profile-sidebar>
+    </div>
+    <div>
+        <app-prospector-sidebar (segment)="onAddSegment($event)"></app-prospector-sidebar>
+    </div>
+    <div>
+        <div>
+            <app-header></app-header>
+        </div>
+        <div class="segmentSection" *ngFor="let item of segmentData, let i = index">
+            <div class="headerSection">
+                <img class="chickenImg" src="../../../assets/images/Chicken.svg" alt="chicken">
+                <div class="ssegment">
+                    <div class="headerSegment" (click)="openModal()">{{item.name}}</div>
+                    <img class="arrow" src="../../../assets/images/arrowDown.svg" alt="arrow">
+                </div>
+            </div>
+            <div>
+                <app-segment-card class="segmentItem" (modalOpenObj)="modalOpenObj($event, i)" [segementDataItem]="item.segmentItem" ></app-segment-card>
+            </div>
+        </div>
+    </div>
+</div>
+<app-modal *ngIf="opened" (close)="onModalClose($event)"  (modalDataObj)="modalDataObj($event)" [modalData]="modalData" ></app-modal>
